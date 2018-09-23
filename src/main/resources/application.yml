@@ -1,0 +1,106 @@
+spring:
+  profiles.default: default
+---
+
+spring:
+  profiles: default
+  jackson:
+    serialization:
+      write-dates-as-timestamps: false
+  datasource:
+    url: jdbc:postgresql://db.midnightbsd.org/magus
+    jdbc-url: jdbc:postgresql://db.midnightbsd.org/magus
+    username: magus
+    password: 
+    hikari:
+      jdbc-url:  jdbc:postgresql://db.midnightbsd.org/magus
+      maximum-pool-size: 10
+      minimum-idle: 1
+  jpa:
+    database: POSTGRESQL
+    hibernate:
+      ddl-auto: none
+      naming-strategy: org.hibernate.cfg.ImprovedNamingStrategy
+      use-new-id-generator-mappings: false
+    generate-ddl: false
+    show-sql: false
+    properties:
+     hibernate:
+       temp:
+         use_jdbc_metadata_defaults: false
+       cache:
+         provider_class: org.hibernate.cache.EhCacheProvider
+         use_second_level_cache: true
+         use_query_cache: true
+         region:
+            factory_class: org.hibernate.cache.ehcache.EhCacheRegionFactory
+            prefix: hibernate
+     javax:
+       persistence:
+         sharedCache:
+           mode: ALL
+  cache:
+    type: REDIS
+  redis:
+    host: localhost
+    port: 6379
+    database: 0
+  data:
+    jest:
+      uri: http://localhost:9200
+      aws-region: us-east-1
+
+eureka:
+  client:
+    serviceUrl:
+     defaultZone: http://eureka.justjournal.com:8761/eureka/
+
+server:
+  tomcat:
+    remote_ip_header: x-forwarded-for
+    protocol_header: x-forwarded-proto
+
+search:
+  magus-item-index: magusitem
+
+
+---
+spring:
+  profiles: test
+  datasource:
+    url: jdbc:postgresql://localhost/magus_test
+    username: postgres
+    password:
+
+---
+spring:
+  profiles: prod
+  redis:
+    host: midnightbsd-redis.c6ifkh.0001.use1.cache.amazonaws.com
+    port: 6379
+    database: 1
+  data:
+    jest:
+      uri: http://vpc-mnbsd-3en4agwhc4ud7wmwuigo7aovwi.us-east-1.es.amazonaws.com
+      aws-region: us-east-1
+  datasource:
+    hikari:
+      jdbc-url: jdbc:postgresql://db.midnightbsd.org/magus?ssl=true&amp;sslfactory=org.postgresql.ssl.NonValidatingFactory
+      maximum-pool-size: 10
+      minimum-idle: 1
+    url: jdbc:postgresql://db.midnightbsd.org/magus?ssl=true&amp;sslfactory=org.postgresql.ssl.NonValidatingFactory
+    jdbc-url: jdbc:postgresql://db.midnightbsd.org/magus?ssl=true&amp;sslfactory=org.postgresql.ssl.NonValidatingFactory
+    username: magus
+    password: 
+cloud:
+  aws:
+    credentials:
+      accessKey:
+      secretKey:
+    region:
+      static: US_EAST_1
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://appstore.midnightbsd.org:8761/eureka/

@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: magus
+
+server:
+  port: ${port:8250}
+  compression:
+    enabled: true
+    mime-types: application/json,application/xml,text/html,text/xml,text/plain
+  tomcat:
+    remote_ip_header: x-forwarded-for
+    protocol_header: x-forwarded-proto
+
+tomcat:
+  ajp:
+    port: ${ajp-port:8251}
+    remoteauthentication: ${ajp-auth:false}
+    enabled: ${ajp-on:true}
