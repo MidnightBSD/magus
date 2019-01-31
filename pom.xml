@@ -16,7 +16,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.0.3.RELEASE</version>
+        <version>2.0.8.RELEASE</version>
     </parent>
 
     <properties>
@@ -94,13 +94,11 @@
         <dependency>
             <groupId>io.reactivex.rxjava2</groupId>
             <artifactId>rxjava</artifactId>
-            <version>2.1.0</version>
         </dependency>
 
         <dependency>
             <groupId>org.apache.httpcomponents</groupId>
             <artifactId>httpclient</artifactId>
-            <version>4.5.3</version>
         </dependency>
 
         <dependency>
@@ -141,7 +139,7 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>1.16.12</version>
+            <version>1.18.4</version>
             <scope>provided</scope>
         </dependency>
 
@@ -149,7 +147,21 @@
             <groupId>com.github.vanroy</groupId>
             <artifactId>spring-boot-starter-data-jest</artifactId>
             <version>3.1.2.RELEASE</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>io.searchbox</groupId>
+                    <artifactId>jest-common</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
+
+        <!-- elasticsearch 2.x -->
+        <dependency>
+            <groupId>io.searchbox</groupId>
+            <artifactId>jest</artifactId>
+            <version>2.4.0</version>
+        </dependency>
+
         <!-- needed for aws with jest client above -->
         <!--
         <dependency>
@@ -219,13 +231,11 @@
         <dependency>
             <groupId>org.aspectj</groupId>
             <artifactId>aspectjweaver</artifactId>
-            <version>1.7.4</version>
         </dependency>
 
         <dependency>
             <groupId>xml-apis</groupId>
             <artifactId>xml-apis</artifactId>
-            <version>1.4.01</version>
         </dependency>
 
         <dependency>
@@ -308,7 +318,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <mainClass>org.midnightbsd.advisory.Application</mainClass>
+                    <mainClass>org.midnightbsd.magus.Application</mainClass>
                 </configuration>
             </plugin>
 
@@ -334,7 +344,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>org.midnightbsd.advisory.Application</mainClass>
+                            <mainClass>org.midnightbsd.magus.Application</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
@@ -351,7 +361,7 @@
                             <goal>java</goal>
                         </goals>
                         <configuration>
-                            <mainClass>org.midnightbsd.advisory.Application</mainClass>
+                            <mainClass>org.midnightbsd.magus.Application</mainClass>
                         </configuration>
                     </execution>
                 </executions>

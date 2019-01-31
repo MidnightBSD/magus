@@ -10,6 +10,7 @@ import java.util.Date;
 @Table(name = "ready_ports")
 public class ReadyPort {
 
+    @Id
     @Column(name = "id")
     private int id;
 

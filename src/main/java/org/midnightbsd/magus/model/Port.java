@@ -71,7 +71,7 @@ public class Port implements Serializable {
     private List<Event> events;
 
     @JsonIgnore
-    @OneToOne(mappedBy = "log")
+    @OneToOne(cascade = CascadeType.ALL)
     private Log log;
 
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)

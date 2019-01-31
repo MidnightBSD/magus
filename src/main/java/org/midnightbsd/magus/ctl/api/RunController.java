@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 
 /**
  * @author Lucas Holt
@@ -29,6 +31,11 @@ public class RunController {
     @GetMapping
     public ResponseEntity<Page<Run>> list(final Pageable page) {
         return ResponseEntity.ok(runService.get(page));
+    }
+
+    @GetMapping("/status/{status}")
+    public ResponseEntity<List<Run>> listByStatus(@PathVariable("status") final String status) {
+        return ResponseEntity.ok(runService.listByStatus(status));
     }
 
     @GetMapping("/{id}")

@@ -32,6 +32,10 @@ public class RunService implements AppService<Run> {
         return repository.findAll();
     }
 
+    public List<Run> listByStatus(String status) {
+       return repository.findByStatus(status);
+    }
+
     public Page<Run> get(final Pageable page) {
         return repository.findAll(page);
     }
