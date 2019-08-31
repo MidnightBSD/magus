@@ -25,7 +25,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <flyway.version>5.2.3</flyway.version>
         <angularjs.version>1.4.14</angularjs.version>
-        <jackson.version>2.9.9</jackson.version>
+        <jackson.version>2.9.9.3</jackson.version>
     </properties>
 
     <dependencies>
@@ -51,7 +51,7 @@
         <dependency>
             <groupId>org.webjars</groupId>
             <artifactId>webjars-locator-core</artifactId>
-            <version>0.36</version>
+            <version>0.39</version>
         </dependency>
 
         <!-- server stuff -->
@@ -219,7 +219,7 @@
         <dependency>
             <groupId>io.searchbox</groupId>
             <artifactId>jest</artifactId>
-            <version>2.4.0</version>
+            <version>6.3.0</version>
         </dependency>
 
         <!-- needed for aws with jest client above -->
@@ -267,7 +267,7 @@
         <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
-            <version>42.2.2</version>
+            <version>42.2.5</version>
         </dependency>
 
         <dependency>
