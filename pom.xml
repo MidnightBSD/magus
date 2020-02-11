@@ -219,7 +219,7 @@
         <dependency>
             <groupId>io.searchbox</groupId>
             <artifactId>jest</artifactId>
-            <version>2.4.0</version>
+            <version>6.3.0</version>
         </dependency>
 
         <!-- needed for aws with jest client above -->
@@ -267,7 +267,7 @@
         <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
-            <version>42.2.2</version>
+            <version>42.2.5</version>
         </dependency>
 
         <dependency>
