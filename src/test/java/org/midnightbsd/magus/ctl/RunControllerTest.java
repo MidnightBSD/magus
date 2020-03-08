@@ -58,7 +58,7 @@ public class RunControllerTest {
 
     @Test
     public void testList() {
-        Pageable page = new PageRequest(0, 10);
+        Pageable page = PageRequest.of(0, 10);
         final ResponseEntity<Page<Run>> result = controller.list(page);
         assertNotNull(result);
         assertEquals(1, result.getBody().getTotalPages());
