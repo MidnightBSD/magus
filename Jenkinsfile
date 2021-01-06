@@ -10,6 +10,8 @@ pipeline {
                 sh '''
                     echo "PATH = ${PATH}"
                     echo "M2_HOME = ${M2_HOME}"
+                    psql -c 'create database magus_test;' -U postgres
+                    psql -h localhost -d magus_test -U postgres -p 5432 -a -q -f src/main/resources/db/migration/V1_0__magus_create.sql
                 '''
             }
         }
