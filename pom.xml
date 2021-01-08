@@ -330,4 +330,22 @@
         </plugins>
     </build>
 
+         <settings>
+         <pluginGroups>
+        <pluginGroup>org.sonarsource.scanner.maven</pluginGroup>
+    </pluginGroups>
+    <profiles>
+        <profile>
+            <id>sonar</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <!-- Enter your SonarQube instance URL here -->
+                <sonar.host.url>http://sonarcloud.io</sonar.host.url>
+            </properties>
+        </profile>
+     </profiles>
+         </settings>
+         
 </project>
