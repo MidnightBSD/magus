@@ -42,12 +42,9 @@ pipeline {
         	}
         }
         stage('Sonarqube') {
-            environment {
-                scannerHome = tool 'SonarQubeScanner'
-            }
             steps {
                 withSonarQubeEnv('sonarcloud') {
-                    sh "${scannerHome}/bin/sonar-scanner"
+                	sh 'mvn sonar:sonar'
                 }
                 timeout(time: 10, unit: 'MINUTES') {
                     waitForQualityGate abortPipeline: true
