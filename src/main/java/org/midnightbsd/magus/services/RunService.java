@@ -54,7 +54,7 @@ public class RunService implements AppService<Run> {
         if (adv == null) {
             return repository.saveAndFlush(run);
         }
-        log.info("Updating " + adv.getId());
+        log.info("Updating {}", adv.getId());
 
         adv.setArch(run.getArch());
         adv.setBlessed(run.getBlessed());
