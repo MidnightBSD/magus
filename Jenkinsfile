@@ -32,24 +32,26 @@ pipeline {
             }
         }
         stage('jacoco') {
-        steps {
-        jacoco(
-              execPattern: 'target/*.exec',
-              classPattern: 'target/classes',
-              sourcePattern: 'src/main/java',
-              exclusionPattern: 'src/test*'
-        )
+        	steps {
+        		jacoco(
+              	execPattern: 'target/*.exec',
+              	classPattern: 'target/classes',
+              	sourcePattern: 'src/main/java',
+              	exclusionPattern: 'src/test*'
+        		)
+        	}
         }
-        }
-        stage('SonarQube') {
+        stage('Sonarqube') {
+            environment {
+                scannerHome = tool 'sonar-scanner'
+            }
             steps {
-
-        	   env.sonarHome= tool name: 'sonar-scanner', type: 'hudson.plugins.sonar.SonarRunnerInstallation'
-
-                 withSonarQubeEnv('sonar.installation') { // from SonarQube servers > name
-                   sh "${sonarHome}/bin/sonar-runner -Dsonar.host.url=${SONAR_HOST_URL}  -Dsonar.login=${SONAR_AUTH_TOKEN}  -Dsonar.projectName=magus -Dsonar.sources=."
-
-                 }
+                withSonarQubeEnv('sonarqube') {
+                    sh "${scannerHome}/bin/sonar-scanner"
+                }
+                timeout(time: 10, unit: 'MINUTES') {
+                    waitForQualityGate abortPipeline: true
+                }
             }
         }
     }
