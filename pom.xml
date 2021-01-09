@@ -22,8 +22,10 @@
     <properties>
         <java-version>1.8</java-version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <flyway.version>6.5.0</flyway.version>
+        <flyway.version>6.5.7</flyway.version>
         <angularjs.version>1.7.9</angularjs.version>
+        <datajest.version>3.3.2.RELEASE</datajest.version>
+        <spring-cloud.version>Hoxton.SR6</spring-cloud.version>
     </properties>
 
     <profiles>
@@ -135,7 +137,7 @@
 
         <dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
         </dependency>
 
         <dependency>
@@ -159,7 +161,7 @@
         <dependency>
             <groupId>com.github.vanroy</groupId>
             <artifactId>spring-boot-starter-data-jest</artifactId>
-            <version>3.3.1.RELEASE</version>
+            <version>${datajest.version}</version>
         </dependency>
 
         <dependency>
@@ -170,7 +172,7 @@
         <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
-            <version>42.2.16</version>
+            <version>42.2.18.jre7</version>
         </dependency>
 
         <dependency>
@@ -191,7 +193,7 @@
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
-                <version>Hoxton.SR3</version>
+                <version>${spring-cloud.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -202,18 +204,18 @@
         <repository>
             <id>springsource-repo</id>
             <name>SpringSource Repository</name>
-            <url>http://repo.springsource.org/release</url>
+            <url>https://repo.springsource.org/release</url>
         </repository>
 
         <repository>
             <id>spring-snnapshot</id>
             <name>Spring Maven SNAPSHOT Repository</name>
-            <url>http://maven.springframework.org/snapshot</url>
+            <url>https://maven.springframework.org/snapshot</url>
         </repository>
         <repository>
             <id>spring-milestone</id>
             <name>Spring Maven MILESTONE Repository</name>
-            <url>http://maven.springframework.org/milestone</url>
+            <url>https://maven.springframework.org/milestone</url>
         </repository>
 
         <repository>
@@ -224,7 +226,7 @@
         <repository>
             <id>gemfire-repository</id>
             <name>Gemfire Repository</name>
-            <url>http://dist.gemstone.com/maven/release</url>
+            <url>https://dist.gemstone.com/maven/release</url>
         </repository>
 
         <repository>
@@ -234,7 +236,7 @@
         <repository>
             <name>central</name>
             <id>central</id>
-            <url>http://repo1.maven.org/maven2/</url>
+            <url>https://repo1.maven.org/maven2/</url>
         </repository>
     </repositories>
 
